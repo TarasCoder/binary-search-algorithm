@@ -1,13 +1,17 @@
-const numbers = [];
-const totalNumbers = 11;
-let guesses = 0;
-// let randomNr = Math.round(Math.random() * totalNumbers + 1);
-let randomNr = 10;
-let current_position;
-let direction;
-let minNumber = 0;
+// Declaring variables
+let totalNumbers = 10;
 let maxNumber = totalNumbers;
+let minNumber = 0;
+let numbers = [];
+let guesses = 0;
+let direction;
+let current_position;
 
+// Getting random number
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+let randomNr = getRandomNumber(minNumber, maxNumber);
 console.log("Random number is: ", randomNr);
 
 // Filling array
