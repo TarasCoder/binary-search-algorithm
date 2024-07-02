@@ -1,5 +1,12 @@
+// Getting values from the UI
+let selectedNr = document.getElementById("selectedNr");
+let getRandomNrBtn = document.getElementById("getRandomNrBtn");
+let calculateBtn = document.getElementById("calculateBtn");
+let selectedNumberInput = document.getElementById("selectedNumberInput");
+let maxNumberInput = document.getElementById("maxNumberInput");
+
 // Declaring variables
-let totalNumbers = 10;
+let totalNumbers = parseInt(maxNumberInput.value);
 let maxNumber = totalNumbers;
 let minNumber = 0;
 let numbers = [];
@@ -7,11 +14,6 @@ let guesses = 0;
 let direction;
 let current_position;
 
-// Getting values from the UI
-let selectedNr = document.getElementById("selectedNr");
-let getRandomNrBtn = document.getElementById("getRandomNrBtn");
-let calculateBtn = document.getElementById("calculateBtn");
-let selectedNumberInput = document.getElementById("selectedNumberInput");
 
 // Getting random number
 function getRandomNumber() {
@@ -77,7 +79,7 @@ function calculate() {
 
 // Interaction with UI
 selectedNumberInput.addEventListener("input", (ev) => {
-  let userInput = ev.target.value
+  let userInput = ev.target.value;
   selectedNr.innerText = userInput;
   if (userInput >= totalNumbers) {
     selectedNr.innerText = "";
@@ -91,6 +93,11 @@ getRandomNrBtn.addEventListener("click", () => {
   console.log("Random number is: ", randomNr);
   selectedNr.innerText = randomNr;
   selectedNumberInput.value = randomNr;
+});
+
+maxNumberInput.addEventListener("input", (ev) => {
+  let userInputMaxNumber = parseInt(ev.target.value);
+  totalNumbers = userInputMaxNumber;
 });
 
 calculateBtn.addEventListener("click", () => {
