@@ -14,7 +14,6 @@ let guesses = 0;
 let direction;
 let current_position;
 
-
 // Getting random number
 function getRandomNumber() {
   let minNumber = 0;
@@ -33,6 +32,11 @@ function resetValues() {
   guesses = 0;
   direction = "";
   current_position = null;
+}
+
+function clearInputFields() {
+  selectedNr.innerText = "";
+  selectedNumberInput.value = "";
 }
 
 // Making a guess
@@ -78,16 +82,19 @@ function calculate() {
 }
 
 // Interaction with UI
+
+// If user enter some number to search
 selectedNumberInput.addEventListener("input", (ev) => {
-  let userInput = ev.target.value;
+  resetValues();
+  let userInput = parseInt(ev.target.value);
   selectedNr.innerText = userInput;
-  if (userInput >= totalNumbers) {
-    selectedNr.innerText = "";
-    selectedNumberInput.value = "";
-    alert ("Enter number in range between 0 and 10!!!");
+  if (userInput >= totalNumbers || userInput < minNumber) {
+    clearInputFields();
+    alert(`Enter number in range between ${minNumber} and ${maxNumber}!!!`);
   }
 });
 
+// Triggering getting random number option
 getRandomNrBtn.addEventListener("click", () => {
   let randomNr = getRandomNumber();
   console.log("Random number is: ", randomNr);
@@ -95,12 +102,25 @@ getRandomNrBtn.addEventListener("click", () => {
   selectedNumberInput.value = randomNr;
 });
 
+// Changing max number
 maxNumberInput.addEventListener("input", (ev) => {
   let userInputMaxNumber = parseInt(ev.target.value);
-  totalNumbers = userInputMaxNumber;
+  if (userInputMaxNumber <= minNumber) {
+    alert(`Enter number higher as ${minNumber}`);
+  } else {
+    resetValues();
+    clearInputFields();
+    totalNumbers = userInputMaxNumber;
+  }
 });
 
+// Launching Binary Search Algorithm
 calculateBtn.addEventListener("click", () => {
-  resetValues();
-  calculate(makeGuess());
+  // Checking if the user entered some number
+  if (selectedNr.innerText == "") {
+    alert("Enter some number!!!");
+  } else {
+    resetValues();
+    calculate(makeGuess());
+  }
 });
