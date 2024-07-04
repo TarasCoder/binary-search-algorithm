@@ -1,16 +1,74 @@
-.wrapper {
-    border: 1px solid;
-    width: 700px;
-    height: 800px;
-    margin: 50px auto;
+h3, p {
+  margin: 0;
 }
-.range {
+.wrapper {
+  border: 1px solid;
+  width: 700px;
+  height: 800px;
+  margin: 50px auto;
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: antiquewhite;
+}
+.selected_number {
+  margin: 10px 0;
+}
+#selectedNr {
+  text-decoration: underline;
+  font-weight: 600;
+  font-size: 22px;
+}
+.section_block {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  width: 450px;
+  margin: 20px auto;
+  border-radius: 20px;
+  background-color: aquamarine;
+}
+.section_body {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+.section_body_range {
+    align-items: baseline;
+}
+.select_number_section {
+    flex-direction: column;
+}
+.section_header {
+    text-align: center;
+    text-decoration: underline;
+    margin: 20px 0;
 }
 .max_number_input {
-    width: 50px;
-    margin-left: 10px;
-    height: 20px;
-    outline: none;
+  width: 50px;
+  margin-left: 10px;
+}
+.input_number {
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid grey;
+  height: 30px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+}
+.btn {
+  height: 50px;
+  border-radius: 33px;
+  outline: none;
+  border: none;
+  padding: 15px;
+  box-shadow: 1px 1px 5px grey;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(161, 180, 255);
+  color: #fff;
+}
+.launch_btn {
+    display: block;
+    margin: 0 auto;
 }

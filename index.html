@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <div class="range">
-            <p>Enter number between 0 and </p>
-            <input type="text" class="max_number_input" id="maxNumberInput" value="10">
+      <div class="section_block">
+          <h3 class="section_header">Range:</h3>
+          <div class="section_body section_body_range">
+          <p>Enter number between 0 and</p>
+          <input
+            type="text"
+            class="max_number_input input_number"
+            id="maxNumberInput"
+            value="10"
+          />
         </div>
-        <div>
-            <p>Selected number:<span id="selectedNr"></span></p>
+      </div>
+      <div class="section_block">
+        <h3 class="section_header">Select number:</h3>
+        <div class="section_body select_number_section">
+            <input type="number" class="input_number" id="selectedNumberInput" />
+            <button class="btn" id="getRandomNrBtn">Get random number</button>
+            <p class="selected_number">Selected number is: <span id="selectedNr"></span></p>
         </div>
-        <input type="number" id="selectedNumberInput">
-        <div>
-            <button id="getRandomNrBtn">Get random number</button>
-            <button id="calculateBtn">Launch Binary Search Algorithm!</button>
-        </div>
+      </div>
+        <button class="btn launch_btn" id="calculateBtn">
+          Launch Binary Search Algorithm!
+        </button>
     </div>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
