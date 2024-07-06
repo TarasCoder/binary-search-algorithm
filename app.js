@@ -4,6 +4,7 @@ let getRandomNrBtn = document.getElementById("getRandomNrBtn");
 let calculateBtn = document.getElementById("calculateBtn");
 let selectedNumberInput = document.getElementById("selectedNumberInput");
 let maxNumberInput = document.getElementById("maxNumberInput");
+let resultsBlock = document.getElementById("resultsBlock");
 
 // Declaring variables
 let totalNumbers = parseInt(maxNumberInput.value);
@@ -13,6 +14,7 @@ let numbers = [];
 let guesses = 0;
 let direction;
 let current_position;
+let resultIsOdd = true;
 
 // Getting random number
 function getRandomNumber() {
@@ -81,6 +83,28 @@ function calculate() {
   }
 }
 
+// Filling results on the main page
+function displayingInfo(info) {
+  let record_wrapper = document.createElement("div");
+  let record = document.createElement("p");
+  
+  record_wrapper.classList.add("record_wrapper");
+  if (resultIsOdd) {
+    record_wrapper.classList.add("record_wrapper_left");
+  } else {
+    record_wrapper.classList.add("record_wrapper_right");
+  }
+  
+  record.classList.add("single_record");
+  record.classList.add("single_record_right");
+  record.innerText = info;
+  
+  record_wrapper.append(record);
+  resultsBlock.append(record_wrapper);
+  
+  resultIsOdd = !resultIsOdd;
+}
+
 // Interaction with UI
 
 // If user enter some number to search
@@ -124,3 +148,8 @@ calculateBtn.addEventListener("click", () => {
     calculate(makeGuess());
   }
 });
+
+displayingInfo("sasa");
+displayingInfo("sasa pipa");
+displayingInfo("sasa");
+displayingInfo("sasa makasa");

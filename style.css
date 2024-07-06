@@ -1,10 +1,10 @@
+/* add reset CSS */
 h3, p {
   margin: 0;
 }
 .wrapper {
   border: 1px solid;
   width: 700px;
-  height: 800px;
   margin: 50px auto;
   font-size: 18px;
   border-radius: 10px;
@@ -17,6 +17,28 @@ h3, p {
   text-decoration: underline;
   font-weight: 600;
   font-size: 22px;
+}
+.record_wrapper {
+  width: 100%;
+  margin-bottom: 5px;
+  display: flex;
+}
+.record_wrapper_left {
+  justify-content: flex-start;
+}
+.record_wrapper_right {
+  justify-content: flex-end;
+}
+.record_wrapper:last-child {
+  margin-bottom: 0;
+}
+.single_record {
+  border: 1px solid grey;
+  width: fit-content;
+  padding: 8px;
+  border-radius: 10px;
+  background-color: beige;
+  box-shadow: 1px 1px 5px grey;
 }
 .section_block {
   display: flex;
@@ -42,6 +64,11 @@ h3, p {
     text-align: center;
     text-decoration: underline;
     margin: 20px 0;
+}
+.results_block {
+  width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .max_number_input {
   width: 50px;
