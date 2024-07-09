@@ -103,7 +103,13 @@ h3, p {
   background-color: rgb(161, 180, 255);
   color: #fff;
 }
+.random_nr_btn {
+  height: 20px;
+  padding: 0 10px
+}
 .launch_btn {
     display: block;
     margin: 0 auto 20px;
+    background-color: #d30045;
+    color: white;
 }

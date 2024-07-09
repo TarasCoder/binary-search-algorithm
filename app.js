@@ -144,13 +144,13 @@ getRandomNrBtn.addEventListener("click", () => {
 // Changing max number
 maxNumberInput.addEventListener("input", (ev) => {
   let userInputMaxNumber = parseInt(ev.target.value);
-  if (userInputMaxNumber <= minNumber) {
-    alert(`Enter number higher as ${minNumber}`);
-  } else {
+  // if (userInputMaxNumber <= minNumber) {
+  //   alert(`Enter number higher as ${minNumber}`);
+  // } else {
     resetValues();
     clearInputFields();
     totalNumbers = userInputMaxNumber;
-  }
+  // }
 });
 
 // Launching Binary Search Algorithm

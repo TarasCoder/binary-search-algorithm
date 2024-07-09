@@ -1,3 +1,0 @@
--add window to display result messages as dialog (messeanger);
--add ability to enter start point as well (maybe add some range slider for this);
--add step by step display solutions option (displaying each answer after button pressing);
