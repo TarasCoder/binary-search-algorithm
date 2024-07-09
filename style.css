@@ -70,6 +70,14 @@ h3, p {
   padding: 10px;
   box-sizing: border-box;
 }
+.results_block_hide {
+  display: none;
+}
+.guessed_msg {
+  color: #1c52d5;
+  font-weight: 700;
+  text-decoration: underline;
+}
 .max_number_input {
   width: 50px;
   margin-left: 10px;
@@ -97,5 +105,5 @@ h3, p {
 }
 .launch_btn {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }

@@ -34,6 +34,9 @@ function resetValues() {
   guesses = 0;
   direction = "";
   current_position = null;
+  resultsBlock.innerHTML = "";
+  resultsBlock.classList.add("results_block_hide");
+  resultIsOdd = true;
 }
 
 function clearInputFields() {
@@ -46,6 +49,7 @@ function makeGuess() {
   current_position = Math.floor((maxNumber + minNumber) / 2);
   guesses++;
   console.log("current guess", current_position);
+  displayingInfo(`Algorithm guess: ${current_position}`);
   return current_position;
 }
 
@@ -54,6 +58,7 @@ function isRight(current_position) {
   let selectedNumber = parseInt(selectedNr.innerText);
   if (current_position === selectedNumber) {
     console.log(`Guessed in ${guesses} steps`);
+    displayingInfo(`Guessed in ${guesses} steps`);
     return (direction = "match");
   } else if (current_position > selectedNumber) {
     maxNumber = current_position;
@@ -72,10 +77,12 @@ function calculate() {
     return;
   } else {
     console.warn("current_direction:", current_direction);
+    displayingInfo(`System: ${current_direction}`);
     while (current_direction !== "match") {
       current_position = makeGuess();
       current_direction = isRight(current_position);
       console.warn("current_direction:", current_direction);
+      displayingInfo(`System: ${current_direction}`);
       // This is secure mechanism, to prevent browser stucking
       i++;
       if (i > totalNumbers) return;
@@ -98,10 +105,18 @@ function displayingInfo(info) {
   record.classList.add("single_record");
   record.classList.add("single_record_right");
   record.innerText = info;
+
+  // Preventing adding last message as match (after message "Guessed in ... steps")
+  if(record.innerText == "System: match") {
+    return;
+  }
+  if(record.innerText == `Guessed in ${guesses} steps`) {
+    record.classList.add("guessed_msg");
+  }
   
   record_wrapper.append(record);
   resultsBlock.append(record_wrapper);
-  
+
   resultIsOdd = !resultIsOdd;
 }
 
@@ -145,11 +160,12 @@ calculateBtn.addEventListener("click", () => {
     alert("Enter some number!!!");
   } else {
     resetValues();
+    resultsBlock.classList.remove("results_block_hide");
     calculate(makeGuess());
   }
 });
 
-displayingInfo("sasa");
-displayingInfo("sasa pipa");
-displayingInfo("sasa");
-displayingInfo("sasa makasa");
+// displayingInfo("sasa");
+// displayingInfo("sasa pipa");
+// displayingInfo("sasa");
+// displayingInfo("sasa makasa");
